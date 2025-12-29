@@ -1,0 +1,84 @@
+.b-nav {
+  background: #000;
+  color: azure;
+  padding: 8px 600px;
+  text-align:center ;
+  width: 100%;
+  height: 45%;
+}
+
+.navbar {
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  /* height: 48px; */
+  justify-content: space-between;
+  padding: 20px 40px;
+  font-size: 14px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* LEFT */
+.logo {
+  height: 40px;
+  cursor: pointer;
+}
+
+/* CENTER */
+.nav-center {
+  margin-top: 25px;
+margin-bottom: 0;
+margin-left: 130px;
+margin-right: 8px;
+  align-self: end;
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-center li a {
+  text-decoration: none;
+  font-weight: 0;
+  color: #000;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.nav-center li.bold {
+  font-weight: 700;
+}
+
+.nav-center li a:hover {
+  border-bottom: 2px solid #000;
+}
+
+.sale a {
+  color: #e10600;
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+}
