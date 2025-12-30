@@ -1,0 +1,178 @@
+.hero-image {
+  position: absolute;
+  top: 210px;
+  left: 0;
+  width: 100%;
+  height: 22vh; /* 50% height background */
+  background-image: url('https://brand.assets.adidas.com/image/upload/f_auto,q_auto:best,fl_lossy/evergreen_fw25_originalsftw_iwp_launch_background_d_ba7026acbb.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+   pointer-events: none;
+}
+
+.products {
+  /* padding: 40px 32px; */
+   font-weight: 500;
+   padding-top: 0px;
+   position: relative;
+}
+
+.h3top{
+  padding-top: 20px;
+  padding-bottom: 0px;
+  padding-left: 65px;
+  /* padding-right: 65px; */
+}
+
+.products h2 {
+  font-size: 35px;
+  padding-top: 15px;
+  padding-left: 65px;
+   font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.card-grid {
+    position: relative;
+  z-index: 2;
+  padding-left: 65px;
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(8, 2fr);
+  gap: 6px;
+
+}
+
+.card {
+  border: 1px solid #f5f3f3;
+  padding: 0px 0px 0px 0px;
+  max-width: 180px;
+  max-height: 100%;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card-text{
+  max-width: 100%;
+  height: 30%;
+  background-color: white;
+}
+
+.card:hover {
+  transform: translateY(-18px);
+}
+
+.card img {
+  width: 178px;
+  height: 70%;
+  filter:
+    brightness(0.85)
+    contrast(1.1)
+    saturate(1.6)
+    sepia(0.35)
+    hue-rotate(10deg);
+  /* object-fit: contain; */
+}
+
+.card h3 {
+  font-size: 14px;
+  /* margin: 0px 110px; */
+  /* object-fit: fill; */
+}
+
+.card p {
+  font-weight: 600;
+}
+
+
+/* Top category bar */
+.category-bar {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 65px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+    position: relative;
+  z-index: 10;
+}
+
+.categories {
+  display: flex;
+  gap: 28px;
+    position: relative;
+  z-index: 10;
+}
+
+/* Category buttons */
+.category-btn {
+  background: none;
+  border: none;
+  padding: 6px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #777;
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+    position: relative;
+  z-index: 10;
+}
+
+.category-btn:hover {
+  color: #000;
+}
+
+/* Active category (Samba) */
+.category-btn.active {
+  color: #020202;
+  font-weight: 600;
+}
+
+.category-btn.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background-color: #0f0e0e;
+}
+
+/* Filter button */
+.filter-btn {
+  background: #fff;
+  border: 2px solid #000;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.filter-btn .icon {
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
