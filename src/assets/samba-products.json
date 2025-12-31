@@ -1,0 +1,28 @@
+[
+  {
+    "id": "samba-og-black",
+    "name": "Samba OG Shoes",
+    "category": "samba",
+    "gender": "women",
+    "price": 100,
+    "currency": "USD",
+    "badge": "Best Seller",
+    "colors": 35,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqL4L2mnJNRg6Z6_CuMj3munK6lF0Tn-pWg&s",
+    "sizes": [5, 6, 7, 8, 9, 10],
+    "inStock": true
+  },
+  {
+    "id": "samba-og-white",
+    "name": "Samba OG Shoes",
+    "category": "samba",
+    "gender": "men",
+    "price": 100,
+    "currency": "USD",
+    "badge": "New",
+    "colors": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzK_o_BN8z9kYzQJYl3gIf4X1ZlC1D4z5Yg&s",
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "inStock": true
+  }
+]

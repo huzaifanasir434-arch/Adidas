@@ -8,10 +8,10 @@
 }
 
 /* Product card */
-.product-card {
-  background: #f2f3f3;
+.product-card{
+background: #EAEEEF;
   padding: 20px;
-   transition: transform 0.2s ease, box-shadow 0.3s ease;
+ transition: transform 0.2s ease, box-shadow 0.3s ease;
   transform-origin: top; /* anchor at top */
 }
 
@@ -22,23 +22,31 @@
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
 
+
 .product-card img {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 80px;
+  object-fit: contain;
+}
+
+#card1 img{
   width: 100%;
   height: 180px;
   object-fit: contain;
 
-  /* yellowish adidas-like tone */
-  filter:
-    brightness(0.9)
-    contrast(1.1)
-    saturate(1.4)
-    sepia(0.25)
-    hue-rotate(8deg);
+    filter:
+    invert(6%)
+    sepia(6%)
+    saturate(120%)
+    hue-rotate(180deg)
+    brightness(98%)
+    contrast(95%);
 }
 
 .price {
   font-weight: 700;
-  margin: 12px 0 4px;
+  margin: 20px 0 15px;
 }
 
 .product-card h4 {
@@ -48,22 +56,22 @@
 
 .sub,
 .colors {
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
 }
 
 .badge {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .coming {
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
 }
 
 .sold {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 

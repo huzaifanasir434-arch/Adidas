@@ -6,7 +6,7 @@
   <h2>ADIDAS SAMBA</h2>
 
   <div class="card-grid">
-    <div class="card" *ngFor="let shoe of [1]">
+    <div class="card" *ngFor="let shoe of [1]" (click)="selectCategory('samba')">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqL4L2mnJNRg6Z6_CuMj3munK6lF0Tn-pWg&s" alt="Samba Shoe" />
      <div class="card-text">
        <h3>SAMBA</h3>
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="card" *ngFor="let shoe of [1]">
+    <div class="card" *ngFor="let shoe of [1]" (click)="selectCategory('gazelle')">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStWgoP4dvlrB8MK-ci_Ynks_koWHkTFnRJ5g&s" alt="Samba Shoe" />
       <div class="card-text">
         <h3>GAZELLE</h3>
@@ -60,17 +60,32 @@
   <div class="categories">
     <button class="category-btn ">adicolor</button>
     <button class="category-btn">Forum</button>
-    <button class="category-btn">Gazelle</button>
+
+    <button class="category-btn" routerLink="/gazelle"
+    [class.active] = "activeCategory === 'gazelle'"
+    (click)="selectCategory('gazelle')"
+    >Gazelle</button>
+
     <button class="category-btn">Originals Clothing</button>
-    <button class="category-btn" routerLink="/samba">Samba</button>
+
+    <!-- <button class="category-btn" routerLink="/samba">Samba</button> -->
+    <button
+  class="category-btn" routerLink="/samba"
+  [class.active]="activeCategory === 'samba'"
+  (click)="selectCategory('samba')">
+  Samba
+</button>
+
     <button class="category-btn">Stan Smith</button>
     <button class="category-btn">Superstar</button>
+
   </div>
 
   <button class="filter-btn">
     FILTER & SORT
     <span class="icon">☰</span>
   </button>
+
 </div>
 
 </section>
