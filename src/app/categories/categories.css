@@ -1,5 +1,5 @@
-/*
 
+/* Product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -7,16 +7,17 @@
   margin: 14px 65px;
 }
 
-
+/* Product card */
 .product-card {
   background: #f2f3f3;
   padding: 20px;
    transition: transform 0.2s ease, box-shadow 0.3s ease;
-  transform-origin: top;
+  transform-origin: top; /* anchor at top */
 }
 
+/* HOVER EFFECT */
 .product-card:hover {
-  border: 2px solid black;
+  border: 1px solid rgb(70, 67, 67);
   transform: scaleY(1.06);
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
 }
@@ -26,6 +27,7 @@
   height: 180px;
   object-fit: contain;
 
+  /* yellowish adidas-like tone */
   filter:
     brightness(0.9)
     contrast(1.1)
@@ -65,7 +67,36 @@
   font-weight: 700;
 }
 
+/* ........edit or delete btn .......... */
 
+.edit-btn {
+  background: #585757;
+  color: #fff;
+  border-color: #333;
+  padding: 6px 10px;
+  cursor: pointer;
+  margin-right: 4px;
+  border-radius: 5px;
+}
+
+.delete-btn {
+    border-radius: 5px;
+  background: #9ad48e;
+  color: #fff;
+ border-color: #333;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #333;
+}
+
+.delete-btn:hover {
+  background:  #103d07;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -76,4 +107,4 @@
   .product-grid {
     grid-template-columns: 1fr;
   }
-} */
+}

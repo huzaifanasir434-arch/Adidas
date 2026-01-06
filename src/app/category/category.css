@@ -1,9 +1,9 @@
 .hero-image {
   position: absolute;
-  top: 210px;
+  top: 200px;
   left: 0;
   width: 100%;
-  height: 22vh; /* 50% height background */
+  height: 24vh; /* 50% height background */
   background-image: url('https://brand.assets.adidas.com/image/upload/f_auto,q_auto:best,fl_lossy/evergreen_fw25_originalsftw_iwp_launch_background_d_ba7026acbb.jpg');
   background-size: cover;
   background-position: center;
@@ -20,7 +20,7 @@
 }
 
 .h3top{
-  padding-top: 20px;
+  padding-top: 25px;
   padding-bottom: 0px;
   padding-left: 65px;
   /* padding-right: 65px; */
@@ -28,14 +28,15 @@
 
 .products h2 {
   font-size: 35px;
-  padding-top: 15px;
+  padding-top: 16px;
   padding-left: 65px;
-   font-weight: 700;
+   font-weight: 750;
   margin-bottom: 24px;
 }
 
 .card-grid {
     position: relative;
+    margin-bottom: 50px;
   z-index: 2;
   padding-left: 65px;
   display: grid;
@@ -89,22 +90,29 @@
 
 /* Top category bar */
 .category-bar {
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  margin-left: 65px;
+  margin-right: 65px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 65px;
+  padding: 8px 4px;
   border-bottom: 1px solid #e5e5e5;
   background: #fff;
-    position: relative;
-  z-index: 10;
+  z-index: 10; 
+  position: relative;
+
+  /* ................new .............*/
+ /* position: sticky;
+  top: 0;
+  /* z-index: 1000;? */
 }
 
 .categories {
   display: flex;
   gap: 28px;
     position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 /* Category buttons */
@@ -138,13 +146,14 @@
   left: 0;
   bottom: -8px;
   width: 100%;
-  height: 2px;
-  background-color: #0f0e0e;
+  height: 4px;
+  background-color: #080808;
 }
 
 /* Filter button */
 .filter-btn {
   background: #fff;
+  margin-left: 430px;
   border: 2px solid #000;
   padding: 10px 16px;
   font-size: 13px;

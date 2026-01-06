@@ -1,5 +1,5 @@
+/* 
 
-/* Product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -7,15 +7,15 @@
   margin: 14px 65px;
 }
 
-/* Product card */
+
 .product-card{
 background: #EAEEEF;
   padding: 20px;
  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  transform-origin: top; /* anchor at top */
+  transform-origin: top;
 }
 
-/* HOVER EFFECT */
+
 .product-card:hover {
   border: 2px solid black;
   transform: scaleY(1.06);
@@ -75,7 +75,7 @@ background: #EAEEEF;
   font-weight: 700;
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -86,4 +86,4 @@ background: #EAEEEF;
   .product-grid {
     grid-template-columns: 1fr;
   }
-}
+} */

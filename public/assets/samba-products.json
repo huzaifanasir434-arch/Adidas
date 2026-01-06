@@ -1,6 +1,6 @@
 [
   {
-    "id": "11",
+    "id": 11,
     "name": "Samba-A",
     "category": "samba",
     "gender": "women",
@@ -13,7 +13,7 @@
     "inStock": true
   },
   {
-    "id": "12",
+    "id": 12,
     "name": "Samba-B",
     "category": "samba",
     "gender": "men",
@@ -26,7 +26,7 @@
     "inStock": true
   },
     {
-    "id": "13",
+    "id": 13,
     "name": "Samba-C",
     "category": "samba",
     "gender": "men",
@@ -50,5 +50,175 @@
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN1aQS0AQhU6r0GQAg0ZRI0Y4XmHNJU33vQ&s",
     "sizes": [6, 7, 8, 9, 10, 11],
     "inStock": true
+  },
+  {
+    "id": 17,
+    "name": "Samba-D",
+    "category": "samba",
+    "gender": "men",
+    "price": 50,
+    "currency": "USD",
+    "badge": "New",
+    "colors": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN1aQS0AQhU6r0GQAg0ZRI0Y4XmHNJU33vQ&s",
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "inStock": true
+  },
+    {
+      "id": 91,
+      "name": "Gazelle A",
+      "category": "gazelle",
+      "gender": "women",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqL4L2mnJNRg6Z6_CuMj3munK6lF0Tn-pWg&s",
+      "price": 10,
+      "currency": "USD",
+      "subtitle": "Women's Originals",
+      "colors": 35,
+      "badge": "Best seller",
+      "status": "available"
+    },
+    {
+      "id": 92,
+      "name": "Gazelle B",
+      "category": "gazelle",
+      "gender": "women",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStWgoP4dvlrB8MK-ci_Ynks_koWHkTFnRJ5g&s",
+      "price": 10,
+      "currency": "USD",
+      "subtitle": "Women's Originals",
+      "colors": 35,
+      "badge": "Best seller",
+      "status": "available"
+    },
+    {
+      "id": 93,
+      "name": "Gazelle C",
+      "category": "gazelle",
+      "gender": "women",
+      "image": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/b668a22ed8ee475e87beafeeedb96657_9366/samba-og-shoes.jpg",
+      "price": 10,
+      "currency": "USD",
+      "subtitle": "Originals",
+      "colors": 2,
+      "badge": "New",
+      "status": "coming_soon"
+    },
+    {
+      "id": 94,
+      "name": "Gazelle D",
+      "category": "gazelle",
+      "gender": "women",
+      "image": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/1531e73f713546989c1f768aab28f889_9366/samba-jane-shoes.jpg",
+      "price": 50,
+      "currency": "USD",
+      "subtitle": "Women's Originals",
+      "colors": 35,
+      "badge": "Best seller",
+      "status": "sold_out"
+    },
+    {
+      "id": 95,
+      "name": "CAMPUS-A",
+      "category": "campus",
+      "gender": "women",
+      "image": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/1531e73f713546989c1f768aab28f889_9366/samba-jane-shoes.jpg",
+      "price": 69,
+      "currency": "USD",
+      "subtitle": "Women's Originals",
+      "colors": 35,
+      "badge": "Best seller",
+      "status": "sold_out"
+    },
+      {
+      "id": 96,
+      "name": "SPEZIAL-A",
+      "category": "spezial",
+      "gender": "men",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe2WsrnPv8-eWxcym7hIrtVXjqaI02svYmtQ&s",
+      "price": 69,
+      "currency": "USD",
+      "subtitle": "Women's Originals",
+      "colors": 35,
+      "badge": "Best seller",
+      "status": "sold_out"
+    },
+     {
+    "id": 14,
+    "name": "SL-72 A",
+    "category": "sl 72",
+    "gender": "men",
+    "price": 50,
+    "currency": "USD",
+    "badge": "New",
+    "colors": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN1aQS0AQhU6r0GQAg0ZRI0Y4XmHNJU33vQ&s",
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "inStock": true
+  },
+  {
+    "id": 18,
+    "name": "Adicolor-A",
+    "category": "adicolor",
+    "gender": "men",
+    "price": 50,
+    "currency": "USD",
+    "badge": "New",
+    "colors": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN1aQS0AQhU6r0GQAg0ZRI0Y4XmHNJU33vQ&s",
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "inStock": true
+  },
+    {
+      "id": 81,
+      "name": "OC-A",
+      "category": "orignal clothing",
+      "gender": "men",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqL4L2mnJNRg6Z6_CuMj3munK6lF0Tn-pWg&s",
+      "price": 10,
+      "currency": "USD",
+      "subtitle": "Women's Originals",
+      "colors": 35,
+      "badge": "Best seller",
+      "status": "available"
+    },
+    {
+      "id": 82,
+      "name": "forum-A",
+      "category": "forum",
+      "gender": "men",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStWgoP4dvlrB8MK-ci_Ynks_koWHkTFnRJ5g&s",
+      "price": 10,
+      "currency": "USD",
+      "subtitle": "Women's Originals",
+      "colors": 35,
+      "badge": "Best seller",
+      "status": "available"
+    },
+     {
+    "id": 64,
+    "name": "stan-A",
+    "category": "stan smith",
+    "gender": "men",
+    "price": 50,
+    "currency": "USD",
+    "badge": "New",
+    "colors": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN1aQS0AQhU6r0GQAg0ZRI0Y4XmHNJU33vQ&s",
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "inStock": true
+  },
+  {
+    "id": 54,
+    "name": "superstar-A",
+    "category": "superstar",
+    "gender": "men",
+    "price": 50,
+    "currency": "USD",
+    "badge": "New",
+    "colors": 20,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN1aQS0AQhU6r0GQAg0ZRI0Y4XmHNJU33vQ&s",
+    "sizes": [6, 7, 8, 9, 10, 11],
+    "inStock": true
+   
   }
-]
+  ]

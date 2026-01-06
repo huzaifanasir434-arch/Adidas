@@ -1,0 +1,46 @@
+<div *ngIf="product" class="edit-container">
+
+  <h2>Edit {{ product.name }}</h2>
+
+  <form (ngSubmit)="save()" #editForm="ngForm" class="edit-form">
+
+    <label>
+      Name:
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="product.name"
+        required
+        placeholder="Enter product name"
+      />
+    </label>
+
+    <label>
+      Price:
+      <input
+        type="number"
+        name="price"
+        [(ngModel)]="product.price"
+        required
+        min="0"
+      />
+    </label>
+
+    <label>
+      Colors:
+      <input
+        type="number"
+        name="colors"
+        [(ngModel)]="product.colors"
+        required
+        min="0"
+      />
+    </label>
+
+    <button type="submit" [disabled]="editForm.invalid">Save</button>
+
+  </form>
+</div>
+
+<!-- Show loading message when no product yet -->
+<p *ngIf="!product" class="loading-message">Loading product...</p>
