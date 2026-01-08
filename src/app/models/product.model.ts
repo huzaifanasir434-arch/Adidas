@@ -6,7 +6,7 @@ export interface Product {
   price: number;
   currency: string;
   badge?: string;
-  colors: number;
+  colors: string[];
   image: string;
   sizes: number[];
   inStock: boolean;

@@ -34,6 +34,10 @@ export class ProductService {
     );
   }
 
+  getAllProducts(): Observable<Product[]> {
+  return this.http.get<Product[]>(this.url);
+}
+
   getProductById(id: number | string): Observable<Product> {
     return this.loadProducts().pipe(
       map(products => {

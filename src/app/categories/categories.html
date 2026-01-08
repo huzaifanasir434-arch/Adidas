@@ -1,28 +1,88 @@
-<app-category-selector></app-category-selector>
+<app-category-selector (filterClicked)="toggleFilter()">
+</app-category-selector>
 
-<section class="product-grid" >
+<!-- FILTER DROPDOWN -->
+<div class="filter-panel" *ngIf="showFilter">
+
+  <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="applyFilters()" />
+
+  <div class="row">
+    <input type="number" placeholder="Min price" [(ngModel)]="minPrice" (input)="applyFilters()" />
+
+    <input type="number" placeholder="Max price" [(ngModel)]="maxPrice" (input)="applyFilters()" />
+  </div>
+
+ <!-- In your filter panel -->
+<div class="color-filter-container">
+  <p>Filter by color:</p>
+  <div class="colors-containers">
+    <p *ngFor="let clr of uniqueColors"
+       class="color-swatch"
+       [ngStyle]="{'background-color': clr}"
+       [class.selected]="selectedColors.includes(clr)"
+       (click)="toggleColorSelection(clr)">
+    </p>
+  </div>
+</div>
+
+  <select [(ngModel)]="gender" (change)="applyFilters()">
+    <option value="">All genders</option>
+    <option value="men">Men</option>
+    <option value="women">Women</option>
+    <option value="unisex">Unisex</option>
+  </select>
+
+  <button class="reset-btn" (click)="resetFilters()">Reset</button>
+</div>
+
+
+<section class="product-grid">
   <div class="product-card" *ngFor="let product of products">
-    <img [src]="product.image" [alt]="product.name" >
+    <img [src]="product.image" [alt]="product.name">
 
-   <p class="price">
-    {{product.currency}} {{product.price}}
-   </p>
+    <div class="header-row">
+      <p class="price">
+        {{product.currency}} {{product.price}}
+      </p>
 
-   <h4>{{product.name}}</h4>
+      <!-- ............................................................... -->
 
-   <p class="sub">
-    {{product.gender | titlecase}}'s Orignals
-   </p>
+      <div class="filter-wrapper" (clickOutside)="closeMenu()">
+        <button class="filter-btn" (click)="toggleMenu($event, product.id)">
+          <span class="icon">☰</span>
+        </button>
+        <div class="filter-menu" *ngIf="openMenuProductId === product.id">
+          <button type="button" class="menu-item" (click)="onEdit(product); $event.stopPropagation()">Edit</button>
+          <button type="button" class="menu-item danger"
+            (click)="onDelete(product.id); $event.stopPropagation()">Delete</button>
+        </div>
+      </div>
+    </div>
 
-   <p class="colors">
-    {{product.colors}} colors
-   </p>
+    <h4>{{product.name}}</h4>
 
-   <span class="badge" *ngIf="product.badge">
-    {{product.badge}}
-   </span>
+    <p class="sub">
+      {{product.gender | titlecase}}'s Orignals
+    </p>
 
-    <div class="card-actions">
+    <div class="colors-container">
+      @for (clr of product.colors; track $index) {
+      <p class="colors" [ngStyle]="{'background-color': clr}">
+        <!-- {{clr}} -->
+      </p>
+      }
+    </div>
+
+    <span class="badge" *ngIf="product.badge">
+      {{product.badge}}
+    </span>
+
+
+  </div>
+</section>
+
+
+<!-- <div class="card-actions">
      <button
   type="button"
   class="edit-btn"
@@ -36,7 +96,6 @@
   (click)="deleteProduct(product.id); $event.stopPropagation()">
   Delete
 </button>
-    </div>
+    </div> -->
 
-  </div>
-</section>
+<!-- ............................................................... -->

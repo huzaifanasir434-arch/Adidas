@@ -74,6 +74,7 @@
     >adicolor</button>
 
     <button class="category-btn"
+     [class.active] = "activeCategory === 'forum'"
     (click)="selectCategory('forum')"
     >Forum</button>
 
@@ -83,6 +84,7 @@
     >Gazelle</button>
 
     <button class="category-btn"
+     [class.active] = "activeCategory === 'orignal clothing'"
     (click)="selectCategory('orignal clothing')"
     >Originals Clothing</button>
 
@@ -106,77 +108,13 @@
     >Superstar</button>
 
 
-    <button class="filter-btn">
-      FILTER & SORT
-      <span class="icon">☰</span>
-    </button>
+    <button class="filter-btn" (click)="openFilter()">
+  FILTER & SORT
+  <span class="icon">☰</span>
+</button>
 
   </div>
 </div>
 
 </section>
 
-<!-- .............................................................. -->
-
-<!-- <section class="products">
-
-  <div class="hero-image"></div>
-
-  <h3 class="h3top">Home / {{ activeCategory | titlecase }}</h3>
-  <h2>ADIDAS {{ activeCategory | uppercase }}</h2>
-
-  <div class="card-grid">
-    <div
-      class="card"
-      [routerLink]="['/category', 'samba']"
-      routerLinkActive="active"
-    >
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGqL4L2mnJNRg6Z6_CuMj3munK6lF0Tn-pWg&s" alt="Samba Shoe" />
-      <div class="card-text">
-        <h3>SAMBA</h3>
-      </div>
-    </div>
-
-    <div
-      class="card"
-      [routerLink]="['/category', 'gazelle']"
-      routerLinkActive="active"
-    >
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStWgoP4dvlrB8MK-ci_Ynks_koWHkTFnRJ5g&s" alt="Gazelle Shoe" />
-      <div class="card-text">
-        <h3>GAZELLE</h3>
-      </div>
-    </div>
-
-
-  </div>
-
-  <div class="category-bar">
-    <div class="categories">
-      <button
-        type="button"
-        class="category-btn"
-        [class.active]="activeCategory === 'adicolor'"
-        [routerLink]="['/category', 'adicolor']"
-      >adicolor</button>
-
-      <button
-        type="button"
-        class="category-btn"
-        [class.active]="activeCategory === 'forum'"
-        [routerLink]="['/category', 'forum']"
-      >Forum</button>
-
-      <button
-        type="button"
-        class="category-btn"
-        [class.active]="activeCategory === 'gazelle'"
-        [routerLink]="['/category', 'gazelle']"
-      >Gazelle</button>
-
-
-    </div>
-  </div>
-
-</section>
- -->
