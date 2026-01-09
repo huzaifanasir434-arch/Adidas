@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
 import { CommonModule } from '@angular/common';
@@ -163,7 +163,14 @@ export class CategoriesComponent implements OnInit {
   onDelete(id: number) {
     this.products = this.products.filter(p => p.id !== id);
   }
+
+  openProduct(id: number) {
+  this.router.navigate(['/product', id]);
 }
+}
+
+
+
 
 // editProduct(product: Product) {
 //   this.router.navigate(['/edit-product', product.id]);
@@ -173,7 +180,6 @@ export class CategoriesComponent implements OnInit {
 //     this.products = this.products.filter(p => p.id !== id);
 //   }
 // }
-
 
 // ngOnInit() {
 //   this.route.paramMap.subscribe(params => {

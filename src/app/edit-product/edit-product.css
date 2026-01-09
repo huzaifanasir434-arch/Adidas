@@ -8,6 +8,25 @@
   font-family: Arial, sans-serif;
 }
 
+.colors-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.color-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color-dot.selected {
+  border: 2px solid #000;
+  box-shadow: 0 0 0 2px white inset;
+}
+
 .edit-container h2 {
   text-align: center;
   margin-bottom: 1.5rem;

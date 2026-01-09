@@ -4,14 +4,15 @@ import { map, Observable, throwError, of} from 'rxjs';
 import { Product } from '../models/product.model';
 import { tap } from 'rxjs/operators'; // add tap here
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   private products: Product[] = [];
   private productsLoaded = false;
-
   private url = '/assets/samba-products.json';
+
 
   constructor(private http: HttpClient) {}
 
@@ -28,15 +29,15 @@ export class ProductService {
     );
   }
 
+  getAllProducts(): Observable<Product[]> {
+  return this.loadProducts();
+}
+
   getProducts(category: string): Observable<Product[]> {
     return this.loadProducts().pipe(
       map(products => products.filter(p => p.category === category))
     );
   }
-
-  getAllProducts(): Observable<Product[]> {
-  return this.http.get<Product[]>(this.url);
-}
 
   getProductById(id: number | string): Observable<Product> {
     return this.loadProducts().pipe(

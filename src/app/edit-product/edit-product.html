@@ -26,16 +26,20 @@
       />
     </label>
 
-    <label>
-      Colors:
-      <input
-        type="string"
-        name="colors"
-        [(ngModel)]="product.colors"
-        required
-        min="0"
-      />
-    </label>
+    <!-- ✅ COLOR PICKER -->
+    <div class="color-picker">
+      <p>Select Colors:</p>
+
+      <div class="colors-container">
+        <span
+          *ngFor="let clr of allColors"
+          class="color-dot"
+          [ngStyle]="{ 'background-color': clr }"
+          [class.selected]="isSelected(clr)"
+          (click)="toggleColor(clr)">
+        </span>
+      </div>
+    </div>
 
     <button type="submit" [disabled]="editForm.invalid">Save</button>
 

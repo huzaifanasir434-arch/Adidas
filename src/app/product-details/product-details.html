@@ -1,0 +1,45 @@
+<div *ngIf="product" class="details-container">
+
+  <!-- IMAGE -->
+  <div class="image-section">
+    <img [src]="product.image" [alt]="product.name" />
+  </div>
+
+  <!-- INFO -->
+  <div class="info-section">
+
+    <h2>{{ product.name }}</h2>
+
+    <p class="price">
+      {{ product.currency }} {{ product.price }}
+    </p>
+
+    <!-- COLORS -->
+    <div class="colors">
+      <p>Colors:</p>
+      <div class="colors-container">
+        <span
+          *ngFor="let clr of product.colors"
+          class="color-dot"
+          [ngStyle]="{ 'background-color': clr }"
+          [class.selected]="selectedColor === clr"
+          (click)="selectColor(clr)">
+        </span>
+      </div>
+    </div>
+
+    <!-- QUANTITY -->
+    <div class="quantity">
+      <p>Quantity:</p>
+      <button (click)="decreaseQty()">−</button>
+      <span>{{ quantity }}</span>
+      <button (click)="increaseQty()">+</button>
+    </div>
+
+    <!-- ADD TO CART (future) -->
+    <button class="add-to-cart">
+      Add to Cart
+    </button>
+
+  </div>
+</div>
