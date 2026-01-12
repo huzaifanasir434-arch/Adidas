@@ -6,7 +6,6 @@ import { CategoriesComponent } from './categories/categories';
 
 export const routes: Routes = [
 
-
     { path: '', redirectTo: 'category/samba', pathMatch: 'full' },
 
   { path: 'category/:category', component: CategoriesComponent },

@@ -22,12 +22,55 @@
   </ul>
 
 
-  <div class="nav-right">
-    <input type="text" placeholder="Search" class="search"
-    />
+   <div class="nav-right">
+    <input type="text" placeholder="Search" class="search" />
     <button class="icon-btn">🔍</button>
-    <button class="icon-btn">🛒</button>
+
+    <!-- 🛒 CART -->
+    <button class="icon-btn cart-btn" (click)="toggleCart()">
+      🛒
+      <span class="badge" *ngIf="totalQty > 0">
+        {{ totalQty }}
+      </span>
+    </button>
+
     <button class="icon-btn">👤</button>
+  </div>
+
+  <!-- CART DROPDOWN -->
+  <div class="cart-dropdown" *ngIf="showCart">
+
+    <p class="cart-title">My Cart</p>
+
+    <div *ngIf="cartItems.length === 0" class="empty">
+      Cart is empty
+    </div>
+
+    <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+      <img [src]="item.product.image" />
+
+      <div class="cart-info">
+        <p class="name">{{ item.product.name }}</p>
+        <p class="meta">
+          Color:
+          <span
+            class="color-dot"
+            [ngStyle]="{ 'background-color': item.color }">
+          </span>
+        </p>
+
+         <!-- 🔥 LINKED QUANTITY -->
+    <div class="qty-control">
+      <button (click)="decrease(i)"> − </button>
+      <span>{{ item.quantity }}</span>
+      <button (click)="increase(i)"> + </button>
+    </div>
+
+        <p>Qty: {{ item.quantity }}</p>
+      </div>
+      <button class="remove" (click)="removeItem(i)">✕</button>
+    </div>
+
   </div>
 
 </nav>

@@ -1,4 +1,10 @@
+<div class="back-cont">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+</div>
+
+
 <div *ngIf="product" class="details-container">
+
 
   <!-- IMAGE -->
   <div class="image-section">
@@ -16,13 +22,14 @@
 
     <!-- COLORS -->
     <div class="colors">
-      <p>Colors:</p>
+       <p>Select color:</p>
       <div class="colors-container">
         <span
           *ngFor="let clr of product.colors"
           class="color-dot"
           [ngStyle]="{ 'background-color': clr }"
           [class.selected]="selectedColor === clr"
+           [class.active]="clr === selectedColor"
           (click)="selectColor(clr)">
         </span>
       </div>
@@ -37,7 +44,7 @@
     </div>
 
     <!-- ADD TO CART (future) -->
-    <button class="add-to-cart">
+    <button class="add-to-cart" (click)="addToCart()">
       Add to Cart
     </button>
 

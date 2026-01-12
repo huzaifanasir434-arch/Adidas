@@ -2,13 +2,14 @@ import { Component, inject, EventEmitter, output, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb';
 // import { CategoriesComponent } from "../categories/categories";
 
 
 @Component({
   selector: 'app-category-selector',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, BreadcrumbComponent],
   templateUrl: './category.html',
   styleUrl: './category.css',
 })

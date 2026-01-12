@@ -19,11 +19,22 @@
    position: relative;
 }
 
-.h3top{
+/* .breadcrumb {
+   padding-top: 25px;
+  padding-bottom: 0px;
+  padding-left: 65px;
+  font-size: 29px;
+  padding-top: 16px;
+  padding-left: 65px;
+   font-weight: 750;
+  margin-bottom: 24px;
+} */
+
+
+/* .h3top{
   padding-top: 25px;
   padding-bottom: 0px;
   padding-left: 65px;
-  /* padding-right: 65px; */
 }
 
 .products h2 {
@@ -32,7 +43,7 @@
   padding-left: 65px;
    font-weight: 750;
   margin-bottom: 24px;
-}
+} */
 
 .card-grid {
     position: relative;
@@ -99,7 +110,7 @@
   padding: 8px 4px;
   border-bottom: 1px solid #e5e5e5;
   background: #fff;
-  z-index: 10; 
+  z-index: 10;
   position: relative;
 
   /* ................new .............*/
