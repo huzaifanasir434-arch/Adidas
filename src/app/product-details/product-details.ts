@@ -5,16 +5,23 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../services/cart.service';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb';
+
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, BreadcrumbComponent],
   templateUrl: './product-details.html',
   styleUrls: ['./product-details.css']
 })
 export class ProductDetails implements OnInit {
 
+category: string | null = null;
+productName: string | null = null;
+
+  // category!: string;
+  // productName!: string;
   product!: Product;
   selectedColor!: string;
   quantity = 1;
@@ -26,51 +33,34 @@ export class ProductDetails implements OnInit {
     private cartService: CartService
   ) {}
 
-  // ngOnInit() {
-  //   const id = this.route.snapshot.paramMap.get('id');
-  //   if (id) {
-  //     this.productService.getProductById(id).subscribe(p => {
-  //       this.product = p;
-  //       this.selectedColor = p.colors[0]; // default
-  //     });
-  //   }
-  // }
-
   selectColor(color: string) {
     this.selectedColor = color;
   }
-
-  // increaseQty() {
-  //   this.quantity++;
-  // }
-
-  // decreaseQty() {
-  //   if (this.quantity > 1) {
-  //     this.quantity--;
-  //   }
-  // }
-
-  // addToCart() {
-  //   this.cartService.addToCart({
-  //     product: this.product,
-  //     color: this.selectedColor,
-  //     quantity: this.quantity
-  //   });
-
-  //   alert('Product added to cart');
-  // }
 
   goBack() {
     history.back();
   }
 
-   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id')!;
+  //  ngOnInit() {
+  //   const id = this.route.snapshot.paramMap.get('id')!;
+  //   this.productService.getProductById(id).subscribe(p => {
+  //     this.product = p;
+  //     this.selectedColor = p.colors[0];
+  //   });
+  // }
+
+  ngOnInit() {
+  const id = this.route.snapshot.paramMap.get('id');
+
+  if (id) {
     this.productService.getProductById(id).subscribe(p => {
       this.product = p;
+      this.category = p.category;
+      this.productName = p.name;
       this.selectedColor = p.colors[0];
     });
   }
+}
 
   increaseQty() {
     this.quantity++;
@@ -89,3 +79,5 @@ export class ProductDetails implements OnInit {
   }
 
   }
+
+

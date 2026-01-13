@@ -5,6 +5,7 @@ import { Product } from '../models/product.model';
 import { CommonModule } from '@angular/common';
 import { Category } from "../category/category";
 import { FormsModule } from '@angular/forms';
+// import { BreadcrumbComponent } from '../breadcrumb/breadcrumb';
 
 @Component({
   selector: 'app-category',
@@ -51,9 +52,11 @@ export class CategoriesComponent implements OnInit {
     // 2. Listen to category changes and update displayed products accordingly
     this.route.paramMap.subscribe(params => {
       const category = params.get('category');
+       console.log('Category changed:', category);
       if (category) {
         this.categoryName = category;
         this.applyCurrentCategoryFilter();
+
       }
     });
   }
@@ -169,26 +172,3 @@ export class CategoriesComponent implements OnInit {
 }
 }
 
-
-
-
-// editProduct(product: Product) {
-//   this.router.navigate(['/edit-product', product.id]);
-// }
-
-//   deleteProduct(id: number) {
-//     this.products = this.products.filter(p => p.id !== id);
-//   }
-// }
-
-// ngOnInit() {
-//   this.route.paramMap.subscribe(params => {
-//     const category = params.get('category');
-//     if (!category) return;
-
-//     this.categoryName = category;
-
-//     this.productService.getProducts(category)
-//       .subscribe(products => this.products = products);
-//   });
-// }

@@ -1,10 +1,19 @@
-<!-- Breadcrumb (h3) -->
 
+
+<!-- Breadcrumb path -->
 <h3 class="h3top">
-  Home / {{ displayCategory | titlecase }}
+  <a routerLink="/">Home</a>
+  /
+  <a *ngIf="category" [routerLink]="['/category', category]">
+    {{ displayCategory | titlecase }}
+  </a>
+
+  <span *ngIf="hasProduct">
+    / {{ product }}
+  </span>
 </h3>
 
-<!-- Main heading (h2) -->
-<h2 class="h2top">
+<h2 class="h2top" *ngIf="!product">
   ADIDAS {{ displayCategory | uppercase }}
 </h2>
+

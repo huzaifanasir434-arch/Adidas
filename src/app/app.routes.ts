@@ -1,6 +1,6 @@
 import { EditProductComponent } from './edit-product/edit-product';
 import { Routes } from '@angular/router';
-// import { Category } from './category/category';
+import { Category } from './category/category';
 import { CategoriesComponent } from './categories/categories';
 
 

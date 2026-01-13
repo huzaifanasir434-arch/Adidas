@@ -3,6 +3,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 50px;
+  border: 1px solid #0e0303;
+  margin: 15px 25px;
+  align-items: center;
+  justify-items: center;
+  border-radius: 20px;
 }
 
 .image-section {
@@ -75,7 +80,7 @@
   background: white;
   color: black;
   font-weight: 780;
-  margin-bottom: 24px;
+  margin-bottom: 4px;
   font-size: 15px;
   cursor: pointer;
   border-radius: 22px;
