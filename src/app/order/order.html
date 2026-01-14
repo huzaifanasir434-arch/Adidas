@@ -1,0 +1,79 @@
+<!-- <h2 class="title">My Orders</h2>
+
+<p *ngIf="orders.length === 0" class="empty">
+  No orders yet.
+</p>
+
+<div *ngFor="let order of orders" class="order-card">
+
+  <div class="order-header">
+    <span>{{ order.date | date:'medium' }}</span>
+    <strong>Total: {{ order.total | currency }}</strong>
+  </div>
+
+  <div class="order-item" *ngFor="let item of order.items">
+    <img [src]="item.product.image" />
+
+    <div>
+      <p>{{ item.product.name }}</p>
+      <small>Color: {{ item.color }}</small>
+      <small>Quantity: {{ item.quantity }}</small>
+    </div>
+
+    <span>
+      {{ item.product.price * item.quantity | currency }}
+    </span>
+  </div>
+</div>
+
+<button
+  class="confirm-btn"
+  *ngIf="orders.length > 0"
+  (click)="confirm()">
+  Confirm Order
+</button> -->
+
+<!-- ............................................................... -->
+
+
+<h2 class="title">My Orders</h2>
+
+  <div class="back-cont">
+    <button class="back-btn" (click)="goBack()">← Back</button>
+  </div>
+
+<p *ngIf="orders.length === 0" class="empty">
+  No orders yet.
+</p>
+
+<div *ngFor="let order of orders" class="order-card">
+
+  <div class="order-header">
+    <span>{{ order.date | date:'medium' }}</span>
+    <strong>Total: {{ order.total | currency }}</strong>
+  </div>
+
+  <div class="order-item" *ngFor="let item of order.items; let i = index">
+    <img [src]="item.product.image" alt="{{item.product.name}}" />
+
+    <div>
+      <p>{{ item.product.name }}</p>
+      <small>Color: {{ item.color }}</small>
+      <small>Quantity: {{ item.quantity }}</small>
+    </div>
+
+    <span>
+      {{ item.product.price * item.quantity | currency }}
+    </span>
+
+    <button class="remove-btnn" (click)="removeItem(order.id, i)">Remove</button>
+  </div>
+</div>
+
+<button
+  class="confirm-btn"
+  *ngIf="orders.length > 0"
+  (click)="confirm()">
+  Confirm
+</button>
+

@@ -19,6 +19,13 @@ export const routes: Routes = [
         .then(m => m.ProductDetails)
   },
 
+  {
+  path: 'orders',
+  loadComponent: () =>
+    import('./order/order')
+      .then(m => m.OrdersComponent)
+},
+
   { path: '**', redirectTo: 'category/samba' }
 
 ];

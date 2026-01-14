@@ -4,6 +4,11 @@
 
 <main class="app-main">
   <!-- <app-category-selector></app-category-selector> -->
+
+  <div class="toast" *ngIf="message$ | async as msg">
+  {{ msg }}
+</div>
+
   <router-outlet></router-outlet>
 </main>
 

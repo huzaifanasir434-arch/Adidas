@@ -34,6 +34,12 @@
       </span>
     </button>
 
+    <!-- order  -->
+
+    <button class="icon-btn" (click)="goToOrders()">
+  📦 Orders
+</button>
+
     <button class="icon-btn">👤</button>
   </div>
 
@@ -66,10 +72,23 @@
       <button (click)="increase(i)"> + </button>
     </div>
 
-        <p>Qty: {{ item.quantity }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
       </div>
       <button class="remove" (click)="removeItem(i)">✕</button>
     </div>
+
+    <!-- ................................................... -->
+
+    <div class="cart-footer" *ngIf="cartItems.length > 0">
+  <p class="total">
+    Total:
+    {{ cartService.getTotalPrice() | currency:'USD' }}
+  </p>
+
+  <button class="order-btn" (click)="placeOrder()">
+    Order
+  </button>
+</div>
 
   </div>
 
