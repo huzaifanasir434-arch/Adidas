@@ -40,7 +40,35 @@
   📦 Orders
 </button>
 
-    <button class="icon-btn">👤</button>
+    <!-- <button class="icon-btn">👤</button> -->
+     
+     <!-- 👤 PROFILE DROPDOWN -->
+<div class="profile-wrapper">
+
+  <button class="icon-btn" (click)="toggleProfile()">
+    👤
+  </button>
+
+  <div class="profile-dropdown" *ngIf="showProfileMenu">
+
+    <button (click)="goTo('/profile')">Profile</button>
+    <button (click)="goTo('/settings')">Settings</button>
+
+    <hr />
+
+    <!-- NOT LOGGED IN -->
+    <button *ngIf="!isLoggedIn" (click)="goTo('/login')">
+      Login
+    </button>
+
+    <!-- LOGGED IN -->
+    <button *ngIf="isLoggedIn" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+</div>
   </div>
 
   <!-- CART DROPDOWN -->

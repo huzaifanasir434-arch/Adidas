@@ -1,81 +1,22 @@
-/* .title {
-  margin: 20px;
-}
-
-.order-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  margin: 16px;
-  padding: 16px;
-  border-radius: 8px;
-}
-
-.order-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  font-weight: bold;
-}
-
-.order-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 0;
-  border-top: 1px solid #eee;
-}
-
-.order-item img {
-  width: 60px;
-}
-
-.confirm-btn {
-  margin: 30px auto;
-  display: block;
-  padding: 12px 40px;
-  background: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.confirm-btn:hover {
-  opacity: 0.8;
-}
-
-.empty {
-  margin: 40px;
-  text-align: center;
-  color: gray;
-}
-
-.remove-item {
-  background: transparent;
-  border: none;
-  color: red;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.cancel-btn {
-  background: transparent;
-  border: 1px solid red;
-  color: red;
-  padding: 4px 10px;
-  cursor: pointer;
-} */
-
-
-/* ....................................................................... */
-
 
 
 .title {
+  margin-left: 175px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.heading {
   margin: 20px 20px;
   text-align: center;
   margin-bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+.icon-btn {
+  padding-left: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
 }
 
 .back-cont {
@@ -94,6 +35,17 @@
   cursor: pointer;
   border-radius: 22px;
 }
+
+.color-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 6px;
+  border: 1px solid #aaa;
+}
+
 
 
 .empty {

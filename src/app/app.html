@@ -5,6 +5,8 @@
 <main class="app-main">
   <!-- <app-category-selector></app-category-selector> -->
 
+  <app-toast></app-toast>
+
   <div class="toast" *ngIf="message$ | async as msg">
   {{ msg }}
 </div>

@@ -2,6 +2,8 @@ import { EditProductComponent } from './edit-product/edit-product';
 import { Routes } from '@angular/router';
 import { Category } from './category/category';
 import { CategoriesComponent } from './categories/categories';
+import { Login } from './login/login';
+import { Register } from './register/register';
 
 
 export const routes: Routes = [
@@ -11,6 +13,17 @@ export const routes: Routes = [
   { path: 'category/:category', component: CategoriesComponent },
 
   { path: 'edit-product/:id', component: EditProductComponent },
+
+  { path: 'profile', loadComponent: () => import('./profile/profile').then(m => m.ProfileComponent) },
+
+  {
+  path: 'order-history',
+  loadComponent: () => import('./order-history/order-history').then(m => m.OrderHistoryComponent)
+},
+
+   { path: 'login', component: Login },
+
+  { path: 'register', component: Register },
 
   {
     path: 'product/:id',

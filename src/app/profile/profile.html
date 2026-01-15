@@ -1,0 +1,19 @@
+   <div class="back-cont">
+    <button class="back-btn" (click)="goBack()">← Back</button>
+  </div>
+
+<div class="profile-wrapper">
+
+  <div class="profile-card">
+    <h2>My Profile</h2>
+
+    <p>
+      <strong>Email:</strong>
+      {{ user.email }}
+    </p>
+
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</div>

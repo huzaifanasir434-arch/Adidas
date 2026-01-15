@@ -1,68 +1,93 @@
-// import { Component } from '@angular/core';
-// import { CartService } from '../services/cart.service';
-// import { CommonModule } from '@angular/common';
-
-// @Component({
-//   selector: 'app-orders',
-//   standalone: true,
-//   imports: [CommonModule],
-//   templateUrl: './order.html',
-//   styleUrl: './order.css'
-// })
-
-// export class OrdersComponent {
-
-//   orders: any[];
-
-//   constructor(private cartService: CartService) {
-//     this.orders = this.cartService.getOrders();
-//   }
-
-//   confirm() {
-//     this.cartService.confirm();
-//     alert('Order confirmed & saved!');
-//   }
-// }
-
-// ..............................................................................................
-
 
 import { Component } from '@angular/core';
-import { CartService, Order } from '../services/cart.service';
+import { CartService } from '../services/cart.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth/auth.service';
+import { ToastService } from '../services/toast.service';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+import { Order } from '../models/order.model';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './order.html',
   styleUrls: ['./order.css'] // fix plural typo
 })
+// export class OrdersComponent {
+
+//   orders: Order[] = [];
+
+//   constructor(
+//     private auth: AuthService,
+//     private toast: ToastService,
+//     private cartService: CartService) {
+//     this.loadOrders();
+//   }
+
+//   loadOrders() {
+//     this.orders = this.cartService.getOrders();
+//   }
+
+//   confirm() {
+
+//     if (!this.auth.isLoggedIn()) {
+//       this.toast.show('Please login first to confirm order');
+//       return;
+//     }
+
+
+//     this.cartService.confirm();
+
+//     this.orders = [];
+//   }
+
+//      goBack() {
+//     history.back();
+//   }
+
+//   removeItem(orderId: string, index: number) {
+//     this.cartService.removeItemFromOrder(orderId, index);
+//     this.loadOrders();
+//   }
+// }
+
+
+//....................................................................//
+
+
 export class OrdersComponent {
 
-  orders: Order[] = [];
+  order: Order | null = null;
 
-  constructor(private cartService: CartService) {
-    this.loadOrders();
+  constructor(
+    private cartService: CartService,
+    private auth: AuthService,
+    private toast: ToastService,
+    private router: Router
+  ) {
+    this.order = this.cartService.getPendingOrder();
   }
 
-  loadOrders() {
-    this.orders = this.cartService.getOrders();
+  removeItem(index: number) {
+    this.cartService.removeItemFromPending(index);
+    this.order = this.cartService.getPendingOrder();
   }
 
   confirm() {
-    this.cartService.confirm();
-    alert('Orders confirmed & saved!');
-    this.loadOrders();
+    if (!this.auth.isLoggedIn()) {
+      this.toast.show('Please login first to confirm order');
+      return;
+    }
+
+    this.cartService.confirmOrder();
+    this.router.navigate(['/order-history']);
   }
+
 
      goBack() {
     history.back();
   }
 
-  removeItem(orderId: string, index: number) {
-    this.cartService.removeItemFromOrder(orderId, index);
-    this.loadOrders();
-  }
 }
-

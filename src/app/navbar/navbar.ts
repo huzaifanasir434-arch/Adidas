@@ -4,6 +4,7 @@ import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
 import { CartItem } from '../models/cart-item.model';
+import { AuthService } from '../auth/auth.service';
 
 
 @Component({
@@ -15,12 +16,17 @@ import { CartItem } from '../models/cart-item.model';
 })
 export class Navbar implements OnInit {
 
+  showProfileMenu = false;
+  isLoggedIn = false;
+
   cartQty$: any;
   cartItems: CartItem[] = [];
   showCart = false;
   totalQty = 0;
 
-  constructor(public cartService: CartService,
+  constructor(
+    private auth: AuthService,
+    public cartService: CartService,
               private router: Router
   ) {}
 
@@ -32,10 +38,32 @@ export class Navbar implements OnInit {
       this.cartItems = items;
       this.totalQty = this.cartService.getTotalQuantity();
     });
+      this.auth.isLoggedIn$.subscribe(status => {
+      this.isLoggedIn = status;
+    });
   }
 
   toggleCart() {
     this.showCart = !this.showCart;
+  }
+
+    toggleProfile() {
+    this.showProfileMenu = !this.showProfileMenu;
+  }
+
+  goTo(path: string) {
+    this.showProfileMenu = false;
+    this.router.navigate([path]);
+  }
+
+    openProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  logout() {
+    this.auth.logout();
+    this.showProfileMenu = false;
+    this.router.navigate(['/']);
   }
 
   removeItem(index: number) {
@@ -51,7 +79,7 @@ decrease(i: number) {
 }
 
 placeOrder() {
-  this.cartService.placeOrder();
+  this.cartService.createPendingOrder();
   this.showCart = false;
   this.router.navigate(['/orders']);
 }
