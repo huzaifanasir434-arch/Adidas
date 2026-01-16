@@ -1,6 +1,6 @@
 import { map } from 'rxjs';
 import { Router } from "@angular/router";
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
 import { CartItem } from '../models/cart-item.model';
@@ -27,8 +27,31 @@ export class Navbar implements OnInit {
   constructor(
     private auth: AuthService,
     public cartService: CartService,
-              private router: Router
+    private router: Router
+
   ) {}
+
+  @HostListener('document:click', ['$event'])
+onDocumentClick(event: MouseEvent) {
+  const target = event.target as HTMLElement;
+
+  // If click is outside cart button AND outside cart dropdown → close cart
+  if (
+    !target.closest('.cart-dropdown') &&
+    !target.closest('.cart-btn')
+  ) {
+    this.showCart = false;
+  }
+
+  // If click is outside profile button wrapper AND outside profile dropdown → close profile menu
+  if (
+    !target.closest('.profile-wrapper') &&
+    !target.closest('.profile-dropdown')
+  ) {
+    this.showProfileMenu = false;
+  }
+}
+
 
   ngOnInit() {
     this.cartQty$ = this.cartService.cart$.pipe(
@@ -45,10 +68,12 @@ export class Navbar implements OnInit {
 
   toggleCart() {
     this.showCart = !this.showCart;
+      if (this.showCart) this.showProfileMenu = false;
   }
 
     toggleProfile() {
     this.showProfileMenu = !this.showProfileMenu;
+    if (this.showProfileMenu) this.showCart = false;
   }
 
   goTo(path: string) {

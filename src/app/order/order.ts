@@ -85,7 +85,6 @@ export class OrdersComponent {
     this.router.navigate(['/order-history']);
   }
 
-
      goBack() {
     history.back();
   }

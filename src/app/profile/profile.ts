@@ -1,8 +1,9 @@
-
+import { CartService } from './../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +16,7 @@ import { AuthService } from '../auth/auth.service';
 export class ProfileComponent implements OnInit {
 
   user: any;
+  CartService: any;
 
   constructor(
     private auth: AuthService,
@@ -36,6 +38,7 @@ export class ProfileComponent implements OnInit {
 
   logout() {
     this.auth.logout();
+     this.CartService.resetUserData();
     this.router.navigate(['/login']);
   }
 }

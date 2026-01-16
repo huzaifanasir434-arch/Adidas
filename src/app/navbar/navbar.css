@@ -52,7 +52,7 @@ margin-right: 8px;
 }
 
 .nav-center li a:hover {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #0a0a0a;
 }
 
 .sale a {
@@ -79,91 +79,19 @@ margin-right: 8px;
   cursor: pointer;
 }
 
+.ord-btn {
+  margin-left: 190px;
+  padding: 3px 6px;
+  background: rgb(163, 177, 190);
+  border: 1px solid black;
+  border-radius: 50px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
 .icon-btn:hover {
   transform: scale(1.1);
 }
-
-/* ...................cart data style.................... */
-
-
-/* .cart-btn {
-  position: relative;
-}
-
-.badge {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  background: red;
-  color: white;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-.cart-dropdown {
-  position: absolute;
-  right: 20px;
-  top: 120px;
-  width: 320px;
-  background: white;
-  border: 1px solid #ddd;
-  padding: 12px;
-  z-index: 100;
-}
-
-.cart-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.cart-item img {
-  width: 50px;
-}
-
-.cart-info {
-  flex: 1;
-}
-
-.color-dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.qty-control {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.quantity button {
-  width: 32px;
-  height: 32px;
-  font-size: 18px;
-}
-
-.remove {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.empty {
-  text-align: center;
-  padding: 20px;
-  color: gray;
-} */
 
 
 /* ..........................new...................... */

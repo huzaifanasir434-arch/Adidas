@@ -2,19 +2,24 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Order } from '../models/order.model';
 import { CartItem } from '../models/cart-item.model';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
   getTotalQuantity(): number {
      return this.cart.reduce((sum, i) => sum + i.quantity, 0);
-    throw new Error('Method not implemented.');
   }
 
   private cart: CartItem[] = [];
   private pendingOrder: Order | null = null;
   private orderHistory: Order[] = [];
 
-  private readonly ordersKey = 'orders_storage';
+  // private readonly ordersKey = 'orders_storage';
+
+  private getUserOrdersKey(): string | null {
+  const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+  return user ? `orders_${user.email}` : null;
+}
 
   private cartSubject = new BehaviorSubject<CartItem[]>([]);
   cart$ = this.cartSubject.asObservable();
@@ -22,9 +27,46 @@ export class CartService {
   private messageSubject = new BehaviorSubject<string | null>(null);
   message$ = this.messageSubject.asObservable();
 
-  constructor() {
+  private getOrdersKey(): string | null {
+  const user = this.auth.getCurrentUser();
+  return user ? `orders_${user.email}` : null;
+}
+
+  constructor(private auth: AuthService) {
     this.loadHistory();
+    this.syncUserOrders();
   }
+
+  //==================SYNCUSER===============
+
+  getOrderHistory(): Order[] {
+  this.syncUserOrders(); // 🔥 ALWAYS load correct user
+  return [...this.orderHistory];
+}
+
+  private syncUserOrders() {
+  const key = this.getOrdersKey();
+
+  if (!key) {
+    this.orderHistory = [];
+    return;
+  }
+
+  const saved = localStorage.getItem(key);
+  this.orderHistory = saved
+    ? JSON.parse(saved).map((o: any) => ({
+        ...o,
+        date: new Date(o.date)
+      }))
+    : [];
+}
+
+private saveHistory() {
+  const key = this.getOrdersKey();
+  if (!key) return;
+
+  localStorage.setItem(key, JSON.stringify(this.orderHistory));
+}
 
   // ================= CART =================
 
@@ -82,6 +124,7 @@ export class CartService {
   // ================= ORDER FLOW =================
 
   /** Called when user clicks "Order" from cart */
+  
   createPendingOrder() {
     if (this.cart.length === 0) return;
 
@@ -91,6 +134,10 @@ export class CartService {
       total: this.getTotalPrice(),
       date: new Date()
     };
+
+     // ✅ CLEAR CART IMMEDIATELY
+
+  this.clearCart();
   }
 
   getPendingOrder(): Order | null {
@@ -125,23 +172,48 @@ export class CartService {
 
   // ================= HISTORY =================
 
-  getOrderHistory(): Order[] {
-    return this.orderHistory;
-  }
+  // getOrderHistory(): Order[] {
+  //   return this.orderHistory;
+  // }
 
   private loadHistory() {
-    const saved = localStorage.getItem(this.ordersKey);
-    if (saved) {
-      this.orderHistory = JSON.parse(saved).map((o: any) => ({
-        ...o,
-        date: new Date(o.date)
-      }));
-    }
+  const key = this.getUserOrdersKey();
+  if (!key) {
+    this.orderHistory = [];
+    return;
   }
 
-  private saveHistory() {
-    localStorage.setItem(this.ordersKey, JSON.stringify(this.orderHistory));
+  const saved = localStorage.getItem(key);
+  if (saved) {
+    this.orderHistory = JSON.parse(saved).map((o: any) => ({
+      ...o,
+      date: new Date(o.date)
+    }));
+  } else {
+    this.orderHistory = [];
   }
+}
+
+  // private loadHistory() {
+  //   const saved = localStorage.getItem(this.ordersKey);
+  //   if (saved) {
+  //     this.orderHistory = JSON.parse(saved).map((o: any) => ({
+  //       ...o,
+  //       date: new Date(o.date)
+  //     }));
+  //   }
+  // }
+
+  // private saveHistory() {
+  //   localStorage.setItem(this.ordersKey, JSON.stringify(this.orderHistory));
+  // }
+
+//   private saveHistory() {
+//   const key = this.getUserOrdersKey();
+//   if (!key) return;
+
+//   localStorage.setItem(key, JSON.stringify(this.orderHistory));
+// }
 
   // ================= HELPERS =================
 
@@ -153,12 +225,17 @@ export class CartService {
   private generateId() {
     return Math.random().toString(36).substring(2, 10);
   }
+
+  resetUserData() {
+  this.orderHistory = [];
+  this.pendingOrder = null;
+}
 }
 
 
 
 
-// ..............................................................
+// .................................................................................................
 
 
 // export interface CartItem {

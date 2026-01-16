@@ -18,7 +18,7 @@
     <li class="bold"><a routerLink="/kids">KIDS</a></li>
     <li><a routerLink="/gifts">GIFTS</a></li>
     <li class="sale"><a routerLink="/sale">SALE</a></li>
-    <li><a routerLink="/new & trending"></a>NEW & TRENDING</li>
+    <li><a routerLink="/new & trending">NEW & TRENDING</a></li>
   </ul>
 
 
@@ -27,7 +27,7 @@
     <button class="icon-btn">🔍</button>
 
     <!-- 🛒 CART -->
-    <button class="icon-btn cart-btn" (click)="toggleCart()">
+    <button class="icon-btn cart-btn" (click)="toggleCart()"; $event.stopPropagation()>
       🛒
       <span class="badge" *ngIf="totalQty > 0">
         {{ totalQty }}
@@ -36,12 +36,12 @@
 
     <!-- order  -->
 
-    <button class="icon-btn" (click)="goToOrders()">
+    <!-- <button class="icon-btn" (click)="goToOrders()">
   📦 Orders
-</button>
+</button> -->
 
     <!-- <button class="icon-btn">👤</button> -->
-     
+
      <!-- 👤 PROFILE DROPDOWN -->
 <div class="profile-wrapper">
 
@@ -74,7 +74,12 @@
   <!-- CART DROPDOWN -->
   <div class="cart-dropdown" *ngIf="showCart">
 
-    <p class="cart-title">My Cart</p>
+    <p class="cart-title">My Cart
+
+      <button class="ord-btn" (click)="goToOrders()">
+        📦Open
+      </button>
+    </p>
 
     <div *ngIf="cartItems.length === 0" class="empty">
       Cart is empty

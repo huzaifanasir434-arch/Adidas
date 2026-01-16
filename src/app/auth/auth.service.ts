@@ -13,6 +13,14 @@ export class AuthService {
     !!localStorage.getItem('currentUser')
   );
 
+  //   private userSubject = new BehaviorSubject<any>(this.getStoredUser());
+  // user$ = this.userSubject.asObservable();
+
+  //   private getStoredUser() {
+  //   const user = localStorage.getItem('currentUser');
+  //   return user ? JSON.parse(user) : null;
+  // }
+
   isLoggedIn$ = this.loggedIn$.asObservable();
 
   // REGISTER
@@ -52,4 +60,5 @@ export class AuthService {
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('currentUser') || 'null');
   }
+
 }
